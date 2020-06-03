@@ -1,20 +1,17 @@
 import * as actionTypes from "../action-type/index";
 
 const initialState = {
-    todos: []
+    allLinks: []
 };
 const reducer = (state = initialState, action) => {
     console.log("Add ")
-    let todoState = state.todos;
     switch (action.type) {
         case actionTypes.ADD_LINK:
-            console.log("Add list item")
-            todoState.push(action.payload);
-            return {
+            console.log("inside action");
+            return  {
                 ...state,
-                todos: todoState
-            };
-
+                allLinks: action.payload
+            }
         default:
             return state;
     }

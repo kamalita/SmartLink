@@ -1,20 +1,29 @@
 import React from "react";
 import {connect} from "react-redux";
+import {getLinks} from "../action/index"
 
 
 const mapStateToProps = state => {
     return {
-        todos: state.todos
+        allLinks: state.allLinks
     };
 };
-
+function mapDispatchToProps(dispatch ) {
+    debugger
+    return {
+        getLinks: x => dispatch( getLinks())
+    }
+}
 class List extends React.Component{
+    // ListLinks(){
+    //     this.props.getLinks()
+    // }
     render(){
-    console.log("Hi",this.props.todos)
+    console.log("Hi",this.props.allLinks)
         return(
-            <button onClick={()=>alert("ghhg")}>Click</button>
+            <button onClick={()=>this.props.getLinks("")}>Click</button>
         );
     }
 }
 
-export default connect(null,null)(List);
+export default connect(mapStateToProps,mapDispatchToProps)(List);
