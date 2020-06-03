@@ -1,9 +1,8 @@
 import * as ActionType from "../action-type/index"
 
-export function getLinks(){
-    return dispatch =>{
-        // const links={Student:"/student",Class:"/class",Subject:"/subject"}
-        const links=["Student"]
-        dispatch({type:ActionType.ADD_LINK,payload:links})
+export const getLinks = () =>{
+    const links={School:"/school",Class:"/class",Subject:"/subject"}
+    return {
+        type:ActionType.ADD_LINK,payload:links
     }
 }

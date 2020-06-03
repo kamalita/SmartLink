@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getLinks} from "../action/index"
+import {getLinks} from "../action/index";
+import {Link} from "react-router-dom";
 
 
 const mapStateToProps = state => {
@@ -11,17 +12,29 @@ const mapStateToProps = state => {
 function mapDispatchToProps(dispatch ) {
     debugger
     return {
-        getLinks: x => dispatch( getLinks())
+        getLinks: () => dispatch( getLinks())
     }
 }
 class List extends React.Component{
+
     // ListLinks(){
     //     this.props.getLinks()
     // }
     render(){
-    console.log("Hi",this.props.allLinks)
+
         return(
-            <button onClick={()=>this.props.getLinks("")}>Click</button>
+            <div>
+                <button onClick={()=>this.props.getLinks()}>Click</button>
+                {this.props.allLinks && this.props.allLinks.School &&
+                    (<Link to={this.props.allLinks.School}>School here!</Link>)
+                }
+                {this.props.allLinks && this.props.allLinks.Class &&
+                    (<Link to={this.props.allLinks.Class}>Class here!</Link>)
+                }
+                {this.props.allLinks && this.props.allLinks.Subject &&
+                    (<Link to={this.props.allLinks.Subject}>Subjects here!</Link>)
+                }
+            </div>
         );
     }
 }

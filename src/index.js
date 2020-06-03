@@ -3,7 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import {store}  from "../src/store/index"
-import List from "./components/links";
+import App from "./App";
+import School from "./components/School";
+import {BrowserRouter} from "react-router-dom";
 
 
 //create a react component he
@@ -12,7 +14,9 @@ import List from "./components/links";
 
 ReactDOM.render(
     <Provider store={store}>
-        <List />
+        <BrowserRouter>
+        <App />
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );
