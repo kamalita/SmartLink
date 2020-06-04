@@ -17,23 +17,26 @@ function mapDispatchToProps(dispatch ) {
 }
 class List extends React.Component{
 
-    // ListLinks(){
-    //     this.props.getLinks()
-    // }
     render(){
-
+        debugger;
         return(
             <div>
                 <button onClick={()=>this.props.getLinks()}>Click</button>
+                {this.props.allLinks && this.props.allLinks.Classes &&
+                (<Link to={this.props.allLinks.Classes} target="_blank">Class here!</Link>)
+                }
+
                 {this.props.allLinks && this.props.allLinks.School &&
-                    (<Link to={this.props.allLinks.School}>School here!</Link>)
+                    (<Link to={this.props.allLinks.School} target="_blank">School here!</Link>)
                 }
-                {this.props.allLinks && this.props.allLinks.Class &&
-                    (<Link to={this.props.allLinks.Class}>Class here!</Link>)
-                }
+
                 {this.props.allLinks && this.props.allLinks.Subject &&
-                    (<Link to={this.props.allLinks.Subject}>Subjects here!</Link>)
+                    (<Link to={this.props.allLinks.Subject} target="_blank">Subjects here!</Link>)
                 }
+                {this.props.allLinks.Subject && this.props.allLinks.help &&
+                (<Link to={this.props.allLinks.help} target="_blank">help here!</Link>)
+                }
+
             </div>
         );
     }
