@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default class HelpIcon extends React.Component{
     render() {
         return(
@@ -9,6 +8,8 @@ export default class HelpIcon extends React.Component{
                                 onClick={window.alert("in here")
                                 }/>
                                 //conflict
+                                //creating conflict here
+
             </div>
         )
     }
